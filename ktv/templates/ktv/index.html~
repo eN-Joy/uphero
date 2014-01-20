@@ -1,0 +1,9 @@
+{% if latest_ktv_list %}
+  <ul>
+    {% for ktv in latest_ktv_list %}
+      <li><a href="/polls/{{ ktv.id }}">{{ ktv.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No ktv is available</p>
+{% endif %}

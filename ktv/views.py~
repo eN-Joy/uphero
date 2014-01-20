@@ -1,0 +1,32 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import RequestContext, loader
+
+
+from ktv.models import Article, Category
+
+
+def detail_page(request):
+    lastest_ktv_list = Article.objects.order_by('pub_date')[:5]
+    template = loader.get_template
+    return HttpResponse(output)
+    
+# Create your views here.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

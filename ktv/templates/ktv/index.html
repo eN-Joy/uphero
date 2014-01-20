@@ -1,0 +1,10 @@
+
+{% if latest_article_list %}
+  <ul>
+    {% for ktv in latest_article_list %}
+      <li><a href="/uphero/{{ ktv.id }}">{{ ktv.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No ktv is available</p>
+{% endif %}
