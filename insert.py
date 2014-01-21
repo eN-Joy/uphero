@@ -14,15 +14,15 @@ json_data = open('short.json')
 data = json.load(json_data)
 
 
-# for article in data:
-#     # title = article['article']
-#     title = article['article'][0]
-#     originator = article['poster']
-#     pub_date = article['pdate']
-#     content = article['content']
-#     category_id = 1
-#     link = 'link url'
-#     media = 'link url'
+for article in data:
+    # title = article['article']
+    title = article['article'][0]
+    originator = article['poster']
+    pub_date = article['pdate']
+    content = article['content']
+    category_id = 1
+    link = 'link url'
+    media = 'link url'
     # link = article['post_url']
     # media = article['urls']
     
