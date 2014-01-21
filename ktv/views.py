@@ -11,9 +11,10 @@ from ktv.models import Article, Category
 class IndexView(generic.ListView):
     template_name = 'ktv/index.html'
     context_object_name = 'latest_article_list'
+    paginate_by = 25
 
     def get_queryset(self):
-        return Article.objects.order_by('pub_date')[:5]
+        return Article.objects.order_by('pub_date')
 
         
 class DetailView(generic.DetailView):

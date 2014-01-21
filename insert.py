@@ -1,28 +1,29 @@
+# -*- coding: utf-8 -*-
 import json
 import psycopg2
 
+conn = psycopg2.connect(dbname='uphero',
+                        user='zhou3594',
+                        host='localhost',
+                        password='mary7718')
 
-try:
-    conn = psycopg2.connect("dbname='uphero' user='zhou3594' host='localhost' password='mary7718'")
-except:
-    print "I am unable to connect"
+cur = conn.cursor()
 
-if conn:
-    cursor = conn.cursor()
-    
-json_data = open('short.json')
+json_data = open('wxc.json')
 data = json.load(json_data)
 
-
 for article in data:
-    # title = article['article']
-    title = article['article'][0]
-    originator = article['poster']
+    try:
+        title = article['title'][0]
+    except KeyError:
+        title = u'无标题'
+
+    originator = article['poster'][0]
     pub_date = article['pdate']
     content = article['content']
     category_id = 1
-    link = 'link url'
-    media = 'link url'
+    link = article['post_url'][0]
+    media = json.dumps(article['urls'])
     # link = article['post_url']
     # media = article['urls']
     
@@ -38,12 +39,25 @@ for article in data:
 #     print article['post_url']
 #     print article['urls']
 
-    query = """INSERT INTO ktv_article (title, originator, pub_date,
-    content, category_id, link, media) VALUES (%s, %s, %s, %s, %s, %s, %s);"""
+    query = """
+    INSERT INTO ktv_article
+    (title, originator, pub_date, content, category_id, link, media)
+    VALUES (%s, %s, %s, %s, %s, %s, %s);
+    """
     record = (title, originator, pub_date, content, category_id, link, media)
-    cursor.execute(query, record)
-    # conn.commit()
-    conn.close()
+    cur.execute(query, record)
+    conn.commit()
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ class Category(models.Model):
 
     
 class Article(models.Model):
-    title = models.CharField(max_length=60)
+    title = models.CharField(max_length=120)
     originator = models.CharField(max_length=60)
     pub_date = models.DateTimeField('date published')
     content = RichTextField()
