@@ -4,7 +4,6 @@ from django.template import RequestContext, loader
 from django.core.urlresolvers import reverse
 from django.views import generic
 
-
 from ktv.models import Article, Category
 
 
@@ -19,7 +18,7 @@ class IndexView(generic.ListView):
         
 class DetailView(generic.DetailView):
     model = Article
-    template_name = 'ktv/detail.html'
+    template_name = 'ktv/offcanvas.html'
         
 
 def detail_page(request):

@@ -9,7 +9,7 @@ conn = psycopg2.connect(dbname='uphero',
 
 cur = conn.cursor()
 
-json_data = open('wxc.json')
+json_data = open('short.json')
 data = json.load(json_data)
 
 for article in data:
@@ -21,7 +21,7 @@ for article in data:
     originator = article['poster'][0]
     pub_date = article['pdate']
     content = article['content']
-    category_id = 1
+    category_id = 4
     link = article['post_url'][0]
     media = json.dumps(article['urls'])
     # link = article['post_url']

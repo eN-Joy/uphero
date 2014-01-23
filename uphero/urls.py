@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^tinymce/', include('tinymce.urls')),
     url(r'^ckeditor/', include('ckeditor.urls')),
+    # url(r'^ajax_search/',include('ajax_search.urls')),
     url(r'^uphero/', include('ktv.urls'))
 )
 

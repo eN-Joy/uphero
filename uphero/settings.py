@@ -36,8 +36,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.webdesign',
     # 'tinymce',
     'ckeditor',
+    'categories',
+    'categories.editor',
+    'taggit',
+    # 'ajax_search',
     'ktv',
 )
 
