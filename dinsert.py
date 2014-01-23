@@ -15,13 +15,12 @@ from ktv.models import Article
 json_data = open('short.json')
 data = json.load(json_data)
 
-i = 1
-for article in data:
+for article in data[:100]:
     try:
         title = article['title'][0]
     except KeyError:
         title = u'无标题'
-        
+
     try:
         originator = article['poster'][0]
     except KeyError:
@@ -38,12 +37,11 @@ for article in data:
         originator=originator,
         pub_date=pub_date,
         content=content,
-        category_id=4,
+        category_id=2,
         link=link,
         media=media,
+        is_published=True,
         )
 
     p.save()
-    p.tags.add(u'中文', u'英文', u'老歌', u'粤语')
-    print "Item %s processed!" % i
-    i += 1
+    p.tags.add(u'中文', u'英文', u'老歌', u'粤语', u'想唱就唱')

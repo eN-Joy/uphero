@@ -13,7 +13,7 @@ class IndexView(generic.ListView):
     paginate_by = 25
 
     def get_queryset(self):
-        return Article.objects.order_by('pub_date')
+        return Article.objects.order_by('pub_date').filter(is_published=True)
 
         
 class DetailView(generic.DetailView):
@@ -35,21 +35,3 @@ def detail(request, ktv_id):
     return render(request, 'ktv/detail.html', {'ktv': ktv})
     
 # Create your views here.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

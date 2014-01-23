@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ktv.models import Category, Article
+from ktv.models import Article, Category
 
 admin.site.register(Category)
 admin.site.register(Article)
