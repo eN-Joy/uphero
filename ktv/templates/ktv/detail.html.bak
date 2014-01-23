@@ -1,0 +1,8 @@
+<h2>{{ article.title }}</h2>
+<br />
+由 {{ article.originator }} 发表于 {{ article.pub_date }}
+<br />
+
+原帖： <a href="{{ article.link }}">Link</a>
+<br />
+{{ article.content|safe }}
