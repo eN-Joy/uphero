@@ -5,7 +5,7 @@ import psycopg2
 conn = psycopg2.connect(dbname='uphero',
                         user='zhou3594',
                         host='localhost',
-                        password='mary7718')
+                        password='########')
 
 cur = conn.cursor()
 
